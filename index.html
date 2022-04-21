@@ -4,15 +4,48 @@
     <meta charset="utf-8">
     <title>Hello, World! - A-Frame</title>
     <meta name="description" content="Hello, World! - A-Frame">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component"></script>
   </head>
   <body>
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+    <a-scene environment="preset:forest">
+
+      <a-assets>
+        <img id="img_01" src="assets/shroom.jpg">
+        <a-asset-item id="doggy" rotation="0 -21.621708314851876 0" position="-0.61096 0 -4.99325" scale="10.46686 10.46686 10.46686" src="assets/Chihuahua.glb"></a-asset-item>
+        <video id="video" autoplay loop="true" src="assets/neverGonnaGiveYouUp.mp4"></video>
+      </a-assets>
+
+      <!-- entities need to have an ID in order to update with the aframe watcher -->
+      <a-camera id="a-camera" rotation="0 0 0" position="0 1 0">
+        <a-cursor id="cursor" color="#FF000"></a-cursor>
+      </a-camera>
+      
+      <a-video id="videoplane" position="-1.69259 1.21433 -7.3743" geometry="height: 1; width: 2" src="#video"></a-video>
+      <a-plane id="updateMe" rotation="0 0 0" src="#img_01" position="0 1.2 -6.98596"></a-plane>
+      <a-entity id="doggy" gltf-model="#doggy"  
+        scale="10.46686 10.46686 10.46686"
+        position="-0.61096 0 -4.99325"
+        rotation="0 -21.621708314851876 0"
+        event-set__enter="_event: mouseenter; scale: 20 20 20"
+        event-set__leave="_event: mouseleave; scale: 10.46686 10.46686 10.46686"></a-entity>
     </a-scene>
+
+    <script>
+
+      var videoStopped = false;
+
+      document.querySelector('#videoplane').addEventListener('click', function (evt) {
+          if(videoStopped) {
+            document.querySelector("#video").play();
+            console.log("Video continues");
+          }
+          else {
+            document.querySelector("#video").pause();
+            console.log("Video stopped");
+          }
+          videoStopped = !videoStopped;
+      });
+    </script>
   </body>
 </html>

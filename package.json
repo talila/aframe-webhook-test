@@ -9,8 +9,8 @@
     "ghpages": "ghpages"
   },
   "devDependencies": {
-    "budo": "^7.0.0",
-    "ghpages": "0.0.3"
+    "budo": "^11.7.0",
+    "ghpages": "^0.0.10"
   },
   "keywords": [
     "aframe",
@@ -19,5 +19,10 @@
     "aframe-scene",
     "webvr",
     "vr"
-  ]
+  ],
+  "dependencies": {
+    "aframe": "^1.3.0",
+    "aframe-watcher": "^1.4.0",
+    "mkcert": "^1.5.0"
+  }
 }
