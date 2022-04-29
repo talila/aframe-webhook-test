@@ -8,19 +8,24 @@ AFRAME.registerSystem('combinationSystem', {
     tick: function() {
         for(let i = 0; i < this.triggers.length; i++){
             isFulfilled = true;
-            pos1 = this.triggers[i].el.getAttribute('position');
+
+            pos1 = new THREE.Vector3();
+            pos1.setFromMatrixPosition(this.triggers[i].el.object3D.matrixWorld);
+            console.log(pos1)
 
             for(let j = 0; j < this.combinables.length; j++)
             {
                 if(this.combinables[j].data.combination == this.triggers[i].data.combination)
                 {
-                    pos2 = this.combinables[j].el.getAttribute('position');
+                    var pos2 = new THREE.Vector3();
+                    pos2.setFromMatrixPosition(this.combinables[j].el.object3D.matrixWorld);
+                    console.log(pos2)
                     distance = Math.sqrt(
                         Math.pow((pos2.x - pos1.x),2) + 
                         Math.pow((pos2.y - pos1.y),2) +
                         Math.pow((pos2.z - pos1.z),2)
                     );
-                    
+                    console.log(distance)
                     if(distance > this.triggers[i].data.radius)
                     {
                         isFulfilled = false;

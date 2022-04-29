@@ -1,0 +1,11 @@
+Model Information:
+* title:	Apple
+* source:	https://sketchfab.com/3d-models/apple-152ca55383b2491e816f5ed5ac127677
+* author:	fredfroehlich (https://sketchfab.com/fredfroehlich)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Apple" (https://sketchfab.com/3d-models/apple-152ca55383b2491e816f5ed5ac127677) by fredfroehlich (https://sketchfab.com/fredfroehlich) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
